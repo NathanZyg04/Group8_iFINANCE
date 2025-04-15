@@ -13,6 +13,7 @@ namespace iFINANCE
     public partial class MainForm : Form
     {
         private NonAdminUser user;
+        private Administrator? admin;
         public MainForm(NonAdminUser user)
         {
             this.user = user;
@@ -62,7 +63,9 @@ namespace iFINANCE
 
         private void ChangePasswordMenuItem_Click(object sender, EventArgs e)
         {
-
+            // create a new form and pass the current user into it
+            ChangePasswordForm passwordForm = new ChangePasswordForm(user);
+            passwordForm.ShowDialog();
         }
     }
 }
