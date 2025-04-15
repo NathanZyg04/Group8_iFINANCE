@@ -73,7 +73,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(101, 13);
             this.label3.TabIndex = 3;
-            this.label3.Text = "add your name here";
+            this.label3.Text = "Group 8";
             // 
             // about
             // 
