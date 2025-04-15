@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.editUsers = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageAccountGroupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,12 +42,13 @@
             this.tileHorizontalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tileVerticalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStrip1.SuspendLayout();
+            this.editUsersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editUsers.SuspendLayout();
             this.SuspendLayout();
             // 
-            // menuStrip1
+            // editUsers
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.editUsers.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.manageAccountGroupToolStripMenuItem,
             this.function2ToolStripMenuItem,
@@ -55,13 +56,14 @@
             this.financialReportsToolStripMenuItem,
             this.ChangePasswordMenuItem,
             this.windowToolStripMenuItem,
-            this.aboutToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.MdiWindowListItem = this.windowToolStripMenuItem;
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1296, 27);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
+            this.aboutToolStripMenuItem,
+            this.editUsersToolStripMenuItem});
+            this.editUsers.Location = new System.Drawing.Point(0, 0);
+            this.editUsers.MdiWindowListItem = this.windowToolStripMenuItem;
+            this.editUsers.Name = "editUsers";
+            this.editUsers.Size = new System.Drawing.Size(1296, 27);
+            this.editUsers.TabIndex = 0;
+            this.editUsers.Text = "Edit Users";
             // 
             // fileToolStripMenuItem
             // 
@@ -149,20 +151,27 @@
             this.aboutToolStripMenuItem.Text = "&About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
+            // editUsersToolStripMenuItem
+            // 
+            this.editUsersToolStripMenuItem.Name = "editUsersToolStripMenuItem";
+            this.editUsersToolStripMenuItem.Size = new System.Drawing.Size(82, 23);
+            this.editUsersToolStripMenuItem.Text = "Edit Users";
+            this.editUsersToolStripMenuItem.Click += new System.EventHandler(this.editUsersToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::iFINANCE.Properties.Resources.UMBackground;
             this.ClientSize = new System.Drawing.Size(1296, 825);
-            this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.editUsers);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
-            this.MainMenuStrip = this.menuStrip1;
+            this.MainMenuStrip = this.editUsers;
             this.Name = "MainForm";
             this.Text = "iFINANCE";
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.editUsers.ResumeLayout(false);
+            this.editUsers.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -170,7 +179,7 @@
 
         #endregion
 
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.MenuStrip editUsers;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem manageAccountGroupToolStripMenuItem;
@@ -183,6 +192,7 @@
         private System.Windows.Forms.ToolStripMenuItem tileHorizontalToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tileVerticalToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem financialReportsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editUsersToolStripMenuItem;
     }
 }
 

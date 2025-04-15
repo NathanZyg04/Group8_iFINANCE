@@ -47,9 +47,10 @@ namespace iFINANCE
 
                 // Hide login form
                 this.Hide();
+                Administrator admin = systemModel.Administrators.FirstOrDefault(u => u.ID == 2);
 
                 // Show main form and pass the user
-                MainForm mainForm = new MainForm(currentUser);
+                MainForm mainForm = new MainForm(currentUser,admin);
                 mainForm.FormClosed += (s, args) => this.Close(); // Close app when main form closes
                 mainForm.Show();
             }

@@ -13,9 +13,10 @@ namespace iFINANCE
     public partial class MainForm : Form
     {
         private NonAdminUser user;
-        private Administrator? admin;
-        public MainForm(NonAdminUser user)
+        private Administrator admin;
+        public MainForm(NonAdminUser user, Administrator admin)
         {
+            this.admin = admin;
             this.user = user;
             InitializeComponent();
         }
@@ -66,6 +67,22 @@ namespace iFINANCE
             // create a new form and pass the current user into it
             ChangePasswordForm passwordForm = new ChangePasswordForm(user);
             passwordForm.ShowDialog();
+        }
+
+        // Edit users options
+        private void editUsersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(admin == null)
+            {
+                MessageBox.Show("You do not have Permission to edit users!");
+                
+            }
+            else
+            {
+                MessageBox.Show("You are an admin!");
+                EditUsersForm editForm = new EditUsersForm();
+                editForm.ShowDialog();
+            }
         }
     }
 }

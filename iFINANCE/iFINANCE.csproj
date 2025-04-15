@@ -117,6 +117,12 @@
     <Compile Include="ChartOfAccountsForm.Designer.cs">
       <DependentUpon>ChartOfAccountsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="EditUsersForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditUsersForm.Designer.cs">
+      <DependentUpon>EditUsersForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Group.cs">
       <DependentUpon>iFINANCE.tt</DependentUpon>
     </Compile>
@@ -178,6 +184,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ChartOfAccountsForm.resx">
       <DependentUpon>ChartOfAccountsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditUsersForm.resx">
+      <DependentUpon>EditUsersForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginWindow.resx">
       <DependentUpon>LoginWindow.cs</DependentUpon>
