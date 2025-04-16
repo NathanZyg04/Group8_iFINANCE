@@ -135,7 +135,7 @@
             // 
             this.transactionNumberTextBox.Location = new System.Drawing.Point(30, 30);
             this.transactionNumberTextBox.Name = "transactionNumberTextBox";
-            this.transactionNumberTextBox.ReadOnly = true;
+            this.transactionNumberTextBox.ReadOnly = true;//should not be editable by user
             this.transactionNumberTextBox.Size = new System.Drawing.Size(200, 20);
             this.transactionNumberTextBox.TabIndex = 1;
             // 
@@ -143,6 +143,7 @@
             // 
             this.totalDebitTextBox.Location = new System.Drawing.Point(30, 380);
             this.totalDebitTextBox.Name = "totalDebitTextBox";
+            this.totalDebitTextBox.ReadOnly = true;//not editiable by user
             this.totalDebitTextBox.Size = new System.Drawing.Size(200, 20);
             this.totalDebitTextBox.TabIndex = 15;
             // 
@@ -150,6 +151,7 @@
             // 
             this.totalCreditTextBox.Location = new System.Drawing.Point(30, 430);
             this.totalCreditTextBox.Name = "totalCreditTextBox";
+            this.totalCreditTextBox.ReadOnly = true;//not editiable by user
             this.totalCreditTextBox.Size = new System.Drawing.Size(200, 20);
             this.totalCreditTextBox.TabIndex = 17;
             // 
