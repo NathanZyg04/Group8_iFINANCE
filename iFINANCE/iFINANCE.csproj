@@ -117,6 +117,19 @@
     <Compile Include="ChartOfAccountsForm.Designer.cs">
       <DependentUpon>ChartOfAccountsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DoubleEntryTransactions\DoubleEntryController.cs" />
+    <Compile Include="DoubleEntryTransactions\DoubleEntryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DoubleEntryTransactions\DoubleEntryForm.Designer.cs">
+      <DependentUpon>DoubleEntryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DoubleEntryTransactions\SelectTransactionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DoubleEntryTransactions\SelectTransactionForm.Designer.cs">
+      <DependentUpon>SelectTransactionForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="EditUsersForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -184,6 +197,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ChartOfAccountsForm.resx">
       <DependentUpon>ChartOfAccountsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DoubleEntryTransactions\DoubleEntryForm.resx">
+      <DependentUpon>DoubleEntryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DoubleEntryTransactions\SelectTransactionForm.resx">
+      <DependentUpon>SelectTransactionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EditUsersForm.resx">
       <DependentUpon>EditUsersForm.cs</DependentUpon>

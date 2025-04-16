@@ -14,6 +14,7 @@ namespace iFINANCE
     {
         private NonAdminUser user;
         private Administrator admin;
+        private DoubleEntryForm doubleEntryFormInstance;
         public MainForm(NonAdminUser user, Administrator admin)
         {
             this.admin = admin;
@@ -82,6 +83,28 @@ namespace iFINANCE
                 MessageBox.Show("You are an admin!");
                 EditUsersForm editForm = new EditUsersForm();
                 editForm.ShowDialog();
+            }
+        }
+
+        private void DoubleEntryToolStripMenuItem_Click(Object sender, EventArgs e)
+        {
+            //Open the DoubleEntryForm for double entry transactions
+            if (user == null)
+            {
+                MessageBox.Show("You must be logged in as a non-admin user to access this feature.");
+                return;
+            }
+
+            if (doubleEntryFormInstance == null || doubleEntryFormInstance.IsDisposed)
+            {
+                doubleEntryFormInstance = new DoubleEntryForm(user.ID);
+                doubleEntryFormInstance.MdiParent = this;
+                doubleEntryFormInstance.FormClosed += (s, args) => doubleEntryFormInstance = null;
+                doubleEntryFormInstance.Show();
+            }
+            else
+            {
+                doubleEntryFormInstance.BringToFront();
             }
         }
     }
