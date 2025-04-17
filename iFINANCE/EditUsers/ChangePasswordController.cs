@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,39 +9,43 @@ using System.Data.Entity;
 
 namespace iFINANCE
 {
-    public partial class ChangePasswordForm : Form
+    class ChangePasswordController
     {
-        private NonAdminUser user;
+
+        private ChangePasswordForm _view;
         private iFINANCEModel systemModel = new iFINANCEModel();
-        public ChangePasswordForm(NonAdminUser user)
+
+        public void ChangePasswordController_Load(object sender, EventArgs e)
         {
-            this.user = user;
-            InitializeComponent();
+            _view = (ChangePasswordForm)sender;
         }
 
-        private void changeButton_Click(object sender, EventArgs e)
+
+        public void changeButton_Click(object sender, EventArgs e)
         {
-            string newPassword = newPasswordTextBox.Text;
-            string confirmPassword = confirmPasswordTextBox.Text;
+            string newPassword = _view.getNewPasswordTextBox();
+            string confirmPassword = _view.getConfirmPasswordTextBox();
 
             // check that the new passwords equal eachother
-            if(newPassword.Equals(confirmPassword))
+            if (newPassword.Equals(confirmPassword))
             {
                 // update user password table
-                
+
+                var user = _view.getUser();
+
 
                 var dbUser = systemModel.NonAdminUsers.Include(u => u.UserPassword).FirstOrDefault(u => u.ID == user.ID);
 
-                if(dbUser != null)
+                if (dbUser != null)
                 {
                     dbUser.UserPassword.encryptedPassword = newPassword;
                     systemModel.SaveChanges();
 
                     MessageBox.Show("Password successfully updated.");
-                    this.DialogResult = DialogResult.OK;
+                    //this.DialogResult = DialogResult.OK;
                 }
 
-                this.Close();
+                _view.Close();
             }
             else
             {

@@ -50,7 +50,7 @@
             this.userListBox.Name = "userListBox";
             this.userListBox.Size = new System.Drawing.Size(159, 204);
             this.userListBox.TabIndex = 0;
-            this.userListBox.SelectedIndexChanged += new System.EventHandler(this.userListBox_SelectedIndexChanged);
+            //this.userListBox.SelectedIndexChanged += new System.EventHandler(this.userListBox_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -138,7 +138,7 @@
             this.editUserButton.TabIndex = 10;
             this.editUserButton.Text = "Edit User";
             this.editUserButton.UseVisualStyleBackColor = true;
-            this.editUserButton.Click += new System.EventHandler(this.editUserButton_Click);
+            //this.editUserButton.Click += new System.EventHandler(this.editUserButton_Click);
             // 
             // EditUsersForm
             // 

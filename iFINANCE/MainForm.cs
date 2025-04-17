@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using iFINANCE.EditUsers;
 
 namespace iFINANCE
 {
@@ -76,11 +77,11 @@ namespace iFINANCE
             if(admin == null)
             {
                 MessageBox.Show("You do not have Permission to edit users!");
-                
+
             }
             else
             {
-                MessageBox.Show("You are an admin!");
+                
                 EditUsersForm editForm = new EditUsersForm();
                 editForm.ShowDialog();
             }
@@ -106,6 +107,29 @@ namespace iFINANCE
             {
                 doubleEntryFormInstance.BringToFront();
             }
+        }
+
+        private void addUsersAdminOnlyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(admin != null)
+            {
+                AddUserForm adduserForm = new AddUserForm(admin);
+                adduserForm.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("You do not have Permission to add users!");
+            }
+            
+        }
+
+
+        
+        private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // create a new form and pass the current user into it
+            ChangePasswordForm passwordForm = new ChangePasswordForm(user);
+            passwordForm.ShowDialog();
         }
     }
 }

@@ -104,10 +104,18 @@
     <Compile Include="Administrator.cs">
       <DependentUpon>iFINANCE.tt</DependentUpon>
     </Compile>
-    <Compile Include="ChangePasswordForm.cs">
+    <Compile Include="EditUsers\AddUserController.cs" />
+    <Compile Include="EditUsers\AddUserForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ChangePasswordForm.Designer.cs">
+    <Compile Include="EditUsers\AddUserForm.Designer.cs">
+      <DependentUpon>AddUserForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditUsers\ChangePasswordController.cs" />
+    <Compile Include="EditUsers\ChangePasswordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditUsers\ChangePasswordForm.Designer.cs">
       <DependentUpon>ChangePasswordForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ChartOfAccountsControl.cs" />
@@ -130,10 +138,11 @@
     <Compile Include="DoubleEntryTransactions\SelectTransactionForm.Designer.cs">
       <DependentUpon>SelectTransactionForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="EditUsersForm.cs">
+    <Compile Include="EditUsers\EditUsersController.cs" />
+    <Compile Include="EditUsers\EditUsersForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EditUsersForm.Designer.cs">
+    <Compile Include="EditUsers\EditUsersForm.Designer.cs">
       <DependentUpon>EditUsersForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Group.cs">
@@ -154,12 +163,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>iFINANCE.edmx</DependentUpon>
     </Compile>
-    <Compile Include="LoginWindow.cs">
+    <Compile Include="LoginWindow\LoginWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LoginWindow.Designer.cs">
+    <Compile Include="LoginWindow\LoginWindow.Designer.cs">
       <DependentUpon>LoginWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="LoginWindow\LoginWindowControl.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -172,6 +182,7 @@
     <Compile Include="NonAdminUser.cs">
       <DependentUpon>iFINANCE.tt</DependentUpon>
     </Compile>
+    <Compile Include="PasswordHashercs.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Transaction.cs">
@@ -192,7 +203,10 @@
     <EmbeddedResource Include="AccountsGroupsForm.resx">
       <DependentUpon>AccountsGroupsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ChangePasswordForm.resx">
+    <EmbeddedResource Include="EditUsers\AddUserForm.resx">
+      <DependentUpon>AddUserForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditUsers\ChangePasswordForm.resx">
       <DependentUpon>ChangePasswordForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ChartOfAccountsForm.resx">
@@ -204,10 +218,10 @@
     <EmbeddedResource Include="DoubleEntryTransactions\SelectTransactionForm.resx">
       <DependentUpon>SelectTransactionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EditUsersForm.resx">
+    <EmbeddedResource Include="EditUsers\EditUsersForm.resx">
       <DependentUpon>EditUsersForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LoginWindow.resx">
+    <EmbeddedResource Include="LoginWindow\LoginWindow.resx">
       <DependentUpon>LoginWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">

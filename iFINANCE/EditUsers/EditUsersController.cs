@@ -1,22 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace iFINANCE
 {
-    public partial class EditUsersForm : Form
+    internal class EditUsersController
     {
+        private static EditUsersForm _view;
         private iFINANCEModel systemModel = new iFINANCEModel();
-        public EditUsersForm()
+
+        public void EditUsersController_Load(object sender, EventArgs e)
         {
-            InitializeComponent();
+            _view = (EditUsersForm)sender;
 
             // Select the nonadmin users from database
             var users = systemModel.NonAdminUsers
@@ -36,44 +34,25 @@ namespace iFINANCE
             }).ToList();
 
             // update list box to displat user info
-            userListBox.DataSource = formattedUsers;
-            userListBox.DisplayMember = "Display";
-            userListBox.ValueMember = "ID";
+            //userListBox.DataSource = formattedUsers;
+            //userListBox.DisplayMember = "Display";
+            //userListBox.ValueMember = "ID";
+
+            _view.SetUserListBoxDataSource(formattedUsers, "Display", "ID");
+
 
         }
 
-        // logic for when you click on a user from list
-        private void userListBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            // Skip if nothing is selected or value isn't an int
-            if (userListBox.SelectedValue == null || !(userListBox.SelectedValue is int userID))
-                return;
-
-            
-           
-
-                // get the user from the database based off the userID from list box
-                NonAdminUser user = systemModel.NonAdminUsers.FirstOrDefault(u => u.ID == userID);
-
-                // set the values of the text box to the current user's values
-                nameTextBox.Text = user.name;
-                emailTextBox.Text = user.email;
-                addressTextBox.Text = user.address;
-                usernameTextBox.Text = user.UserPassword.userName;
-            
-        }
-
-        // edit user button
-        private void editUserButton_Click(object sender, EventArgs e)
+        public void editUserButton_Click(object sender, EventArgs e)
         {
             // get the new strings from the text box
-            string newName = nameTextBox.Text;
-            string newEmail = emailTextBox.Text;
-            string newAddress = addressTextBox.Text;
-            string newUsername = usernameTextBox.Text;
+            string newName = _view.getNameTextBox();
+            string newEmail = _view.getEmailTextBox();
+            string newAddress = _view.getAddressTextBox();
+            string newUsername = _view.getUsernameTextBox();
 
             // check if there is a selected user
-            if (userListBox.SelectedValue is int userID)
+            if (_view.GetSelectedUserId() is int userID)
             {
                 // get the user 
                 NonAdminUser user = systemModel.NonAdminUsers.FirstOrDefault(u => u.ID == userID);
@@ -93,6 +72,26 @@ namespace iFINANCE
             {
                 MessageBox.Show("No user selected!");
             }
+
+        }
+
+
+        public void userListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Skip if nothing is selected or value isn't an int
+            if (_view.GetSelectedUserId() == null || !(_view.GetSelectedUserId() is int userID))
+                return;
+
+
+
+
+            // get the user from the database based off the userID from list box
+            NonAdminUser user = systemModel.NonAdminUsers.FirstOrDefault(u => u.ID == userID);
+
+            // set the values of the text box to the current user's values
+   
+
+            _view.setUserTextBox(user.name, user.email, user.address, user.UserPassword.userName);
 
         }
     }
