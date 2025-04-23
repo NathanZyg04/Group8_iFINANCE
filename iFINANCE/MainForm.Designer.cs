@@ -44,8 +44,9 @@
             this.editUsersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editUsersToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.addUsersAdminOnlyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.doubleEntryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.doubleEntryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editUsers.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -124,21 +125,21 @@
             // cascadeToolStripMenuItem
             // 
             this.cascadeToolStripMenuItem.Name = "cascadeToolStripMenuItem";
-            this.cascadeToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.cascadeToolStripMenuItem.Size = new System.Drawing.Size(161, 24);
             this.cascadeToolStripMenuItem.Text = "Cascade";
             this.cascadeToolStripMenuItem.Click += new System.EventHandler(this.cascadeToolStripMenuItem_Click);
             // 
             // tileHorizontalToolStripMenuItem
             // 
             this.tileHorizontalToolStripMenuItem.Name = "tileHorizontalToolStripMenuItem";
-            this.tileHorizontalToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.tileHorizontalToolStripMenuItem.Size = new System.Drawing.Size(161, 24);
             this.tileHorizontalToolStripMenuItem.Text = "TileHorizontal";
             this.tileHorizontalToolStripMenuItem.Click += new System.EventHandler(this.tileHorizontalToolStripMenuItem_Click);
             // 
             // tileVerticalToolStripMenuItem
             // 
             this.tileVerticalToolStripMenuItem.Name = "tileVerticalToolStripMenuItem";
-            this.tileVerticalToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.tileVerticalToolStripMenuItem.Size = new System.Drawing.Size(161, 24);
             this.tileVerticalToolStripMenuItem.Text = "TileVertical";
             this.tileVerticalToolStripMenuItem.Click += new System.EventHandler(this.tileVerticalToolStripMenuItem_Click);
             // 
@@ -154,10 +155,11 @@
             this.editUsersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.editUsersToolStripMenuItem1,
             this.addUsersAdminOnlyToolStripMenuItem,
-            this.changePasswordToolStripMenuItem});
+            this.changePasswordToolStripMenuItem,
+            this.logoutToolStripMenuItem});
             this.editUsersToolStripMenuItem.Name = "editUsersToolStripMenuItem";
-            this.editUsersToolStripMenuItem.Size = new System.Drawing.Size(82, 23);
-            this.editUsersToolStripMenuItem.Text = "Edit Users";
+            this.editUsersToolStripMenuItem.Size = new System.Drawing.Size(102, 23);
+            this.editUsersToolStripMenuItem.Text = "User Options";
             // 
             // editUsersToolStripMenuItem1
             // 
@@ -173,6 +175,13 @@
             this.addUsersAdminOnlyToolStripMenuItem.Text = "Add Users (Admin only)";
             this.addUsersAdminOnlyToolStripMenuItem.Click += new System.EventHandler(this.addUsersAdminOnlyToolStripMenuItem_Click);
             // 
+            // changePasswordToolStripMenuItem
+            // 
+            this.changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
+            this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(223, 24);
+            this.changePasswordToolStripMenuItem.Text = "Change Password";
+            this.changePasswordToolStripMenuItem.Click += new System.EventHandler(this.changePasswordToolStripMenuItem_Click);
+            // 
             // doubleEntryToolStripMenuItem
             // 
             this.doubleEntryToolStripMenuItem.Name = "doubleEntryToolStripMenuItem";
@@ -180,12 +189,12 @@
             this.doubleEntryToolStripMenuItem.Text = "Double Entry";
             this.doubleEntryToolStripMenuItem.Click += new System.EventHandler(this.DoubleEntryToolStripMenuItem_Click);
             // 
-            // changePasswordToolStripMenuItem
+            // logoutToolStripMenuItem
             // 
-            this.changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
-            this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(223, 24);
-            this.changePasswordToolStripMenuItem.Text = "Change Password";
-            this.changePasswordToolStripMenuItem.Click += new System.EventHandler(this.changePasswordToolStripMenuItem_Click);
+            this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(223, 24);
+            this.logoutToolStripMenuItem.Text = "Logout";
+            this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -225,6 +234,7 @@
         private System.Windows.Forms.ToolStripMenuItem editUsersToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem addUsersAdminOnlyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem changePasswordToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
     }
 }
 

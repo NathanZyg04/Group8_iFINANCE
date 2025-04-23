@@ -21,6 +21,23 @@ namespace iFINANCE
             this.admin = admin;
             this.user = user;
             InitializeComponent();
+
+
+            // if the admin is null or the logged in user is a NonAdminUser, set admin only options to not visible
+            if(admin == null)
+            {
+                editUsersToolStripMenuItem1.Visible = false;
+                addUsersAdminOnlyToolStripMenuItem.Visible = false;
+
+                // set the windows title text to welcome User
+                this.Text = $"Group 8 iFinance | Welcome {user.name}";
+
+            }
+
+            if(admin != null)
+            {
+                this.Text = $"Group 8 iFinance | Weclome {admin.name}";
+            }
         }
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -65,12 +82,12 @@ namespace iFINANCE
             masterAccounts.ShowDialog();
         }
 
-        private void ChangePasswordMenuItem_Click(object sender, EventArgs e)
-        {
-            // create a new form and pass the current user into it
-            ChangePasswordForm passwordForm = new ChangePasswordForm(user);
-            passwordForm.ShowDialog();
-        }
+        //private void ChangePasswordMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    // create a new form and pass the current user or admin into it
+        //    ChangePasswordForm passwordForm = new ChangePasswordForm(user,admin);
+        //    passwordForm.ShowDialog();
+        //}
 
         // Edit users options
         private void editUsersToolStripMenuItem_Click(object sender, EventArgs e)
@@ -130,8 +147,31 @@ namespace iFINANCE
         private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // create a new form and pass the current user into it
-            ChangePasswordForm passwordForm = new ChangePasswordForm(user);
+            ChangePasswordForm passwordForm = new ChangePasswordForm(user,admin);
+
+          
+
             passwordForm.ShowDialog();
+            // after changing password log the user out and have them log back in
+
+            this.Hide();
+
+            LoginWindow newLogin = new LoginWindow();
+            newLogin.ShowDialog();
+            this.Close();
+
+
+        }
+
+
+        // Logout tool menu
+        private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
+            LoginWindow newLogin = new LoginWindow();
+            newLogin.ShowDialog();
+            this.Close();
         }
     }
 }

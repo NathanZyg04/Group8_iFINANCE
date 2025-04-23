@@ -26,12 +26,16 @@ namespace iFINANCE
             string username = _view.getUsernameText();
             string password = _view.getPasswordText();
 
+
+            // get the hashed password
+            string hashedPass = PasswordHasher.Hash(password);
+
             NonAdminUser currentUser = null;
 
             
             var nonAdminUser = systemModel.NonAdminUsers.Include(u => u.UserPassword)
                                                         .FirstOrDefault(u => u.UserPassword.userName == username &&
-                                                                        u.UserPassword.encryptedPassword == password);
+                                                                        u.UserPassword.encryptedPassword == hashedPass);
 
            
                     
@@ -52,7 +56,7 @@ namespace iFINANCE
 
             var adminUser = systemModel.Administrators.Include(u => u.UserPassword)
                                                      .FirstOrDefault(u => u.UserPassword.userName == username &&
-                                                                       u.UserPassword.encryptedPassword == password);
+                                                                       u.UserPassword.encryptedPassword == hashedPass);
 
             if (adminUser != null)
             {

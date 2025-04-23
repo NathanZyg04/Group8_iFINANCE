@@ -15,12 +15,19 @@ namespace iFINANCE
     public partial class ChangePasswordForm : Form
     {
         private NonAdminUser user;
+        private Administrator admin;
         private ChangePasswordController controller;
         private iFINANCEModel systemModel = new iFINANCEModel();
-        public ChangePasswordForm(NonAdminUser user)
+
+       
+
+        public ChangePasswordForm(NonAdminUser user, Administrator admin)
         {
             this.user = user;
+            this.admin = admin;
             controller = new ChangePasswordController();
+
+           
             InitializeComponent();
 
             this.Load += new System.EventHandler(controller.ChangePasswordController_Load);
@@ -38,9 +45,15 @@ namespace iFINANCE
             return confirmPasswordTextBox.Text;
         }
 
+        // getters for the admin / nonadmin users
         public NonAdminUser getUser()
         {
             return user;
+        }
+
+        public Administrator getAdmin()
+        {
+            return admin;
         }
     }
 }

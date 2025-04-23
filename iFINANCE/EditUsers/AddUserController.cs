@@ -52,7 +52,8 @@ namespace iFINANCE
                 iFINANCE.UserPassword userPassword = new iFINANCE.UserPassword
                 {
                     userName = username,
-                    encryptedPassword = password,
+                    // encrypt the password
+                    encryptedPassword = PasswordHasher.Hash(password),
                     passwordExpiryTime = 1,
                     userAccountExpiryDate = System.DateTime.Now
                 };

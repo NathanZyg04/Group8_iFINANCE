@@ -86,7 +86,6 @@
             this.LoginButton.TabIndex = 5;
             this.LoginButton.Text = "Login";
             this.LoginButton.UseVisualStyleBackColor = true;
-            //this.LoginButton.Click += new System.EventHandler(this.LoginButton_Click);
             // 
             // LoginWindow
             // 
@@ -100,7 +99,7 @@
             this.Controls.Add(this.usernameTextBox);
             this.Controls.Add(this.label1);
             this.Name = "LoginWindow";
-            this.Text = "LoginWindow";
+            this.Text = "iFinance";
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -15,6 +15,8 @@ namespace iFINANCE
         private ChangePasswordForm _view;
         private iFINANCEModel systemModel = new iFINANCEModel();
 
+      
+
         public void ChangePasswordController_Load(object sender, EventArgs e)
         {
             _view = (ChangePasswordForm)sender;
@@ -31,21 +33,57 @@ namespace iFINANCE
             {
                 // update user password table
 
+
+                // if the current user is a NonAdminUser
                 var user = _view.getUser();
 
-
-                var dbUser = systemModel.NonAdminUsers.Include(u => u.UserPassword).FirstOrDefault(u => u.ID == user.ID);
-
-                if (dbUser != null)
+                if(user != null)
                 {
-                    dbUser.UserPassword.encryptedPassword = newPassword;
-                    systemModel.SaveChanges();
+                    var dbUser = systemModel.NonAdminUsers.Include(u => u.UserPassword).FirstOrDefault(u => u.ID == user.ID);
 
-                    MessageBox.Show("Password successfully updated.");
-                    //this.DialogResult = DialogResult.OK;
+                    if (dbUser != null)
+                    {
+                        // set the new password to the newPassword (hashed)
+                        dbUser.UserPassword.encryptedPassword = PasswordHasher.Hash(newPassword);
+                        systemModel.SaveChanges();
+
+                        // notify user that it worked
+                        MessageBox.Show("Password successfully updated.");
+
+                       
+                        
+                        _view.Close();
+                        return;
+                    }
+
                 }
 
-                _view.Close();
+                // if the current User is an Admin
+                var admin = _view.getAdmin();
+
+                if(admin != null)
+                {
+                    var adminUser = systemModel.Administrators.Include(u => u.UserPassword).FirstOrDefault(u => u.ID == admin.ID);
+
+                    if(adminUser != null)
+                    {
+                        adminUser.UserPassword.encryptedPassword = PasswordHasher.Hash(newPassword);
+                        systemModel.SaveChanges();
+
+                        // notify user that it worked
+                        
+                        MessageBox.Show("Password successfully updated.");
+
+
+                        _view.Close();
+
+                        return;
+                        
+                    }
+                }
+
+                MessageBox.Show("Something went wrong!");
+
             }
             else
             {
