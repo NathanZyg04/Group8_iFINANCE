@@ -14,6 +14,12 @@ namespace iFINANCE
     
     public partial class NonAdminUser
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public NonAdminUser()
+        {
+            this.MasterAccounts = new HashSet<MasterAccount>();
+        }
+    
         public int ID { get; set; }
         public string name { get; set; }
         public string address { get; set; }
@@ -21,5 +27,7 @@ namespace iFINANCE
     
         public virtual UserPassword UserPassword { get; set; }
         public virtual Administrator Administrator { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MasterAccount> MasterAccounts { get; set; }
     }
 }

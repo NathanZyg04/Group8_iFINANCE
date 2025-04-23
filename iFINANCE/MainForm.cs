@@ -60,7 +60,8 @@ namespace iFINANCE
 
         private void function2ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ChartOfAccountsForm masterAccounts = new ChartOfAccountsForm();
+            // send the current user in
+            ChartOfAccountsForm masterAccounts = new ChartOfAccountsForm(user);
             masterAccounts.ShowDialog();
         }
 

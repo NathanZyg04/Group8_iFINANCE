@@ -13,10 +13,12 @@ namespace iFINANCE
     {
         private static ChartOfAccountsForm _view;     // set the link to the view
         private iFINANCEModel systemModel = new iFINANCEModel();  // set the link to the model
+        private NonAdminUser currentUser;
 
         public void ChartOfAccountsForm_Load(object sender, EventArgs e)
         {
             _view = (ChartOfAccountsForm)sender;
+            currentUser = _view.getUser();
             // fill the acGroupNameBox with main categories, main groups and sub groups
             var GroupsNamesBoxDataSource = new List<Group>();
             var GridGroupsNamesBoxDataSource = new List<Group>();
@@ -29,9 +31,9 @@ namespace iFINANCE
             _view.populateGroupsNamesBox(GroupsNamesBoxDataSource);
             _view.populateGridGroupsNamesBox(GridGroupsNamesBoxDataSource);
 
-            // fill the list with the existing master accounts
+            // fill the list with the existing master accounts that correspond to the current user
             int row = 0;
-            foreach (var account in systemModel.MasterAccounts)
+            foreach (var account in systemModel.MasterAccounts.Where(a => a.NonAdminUser.ID == currentUser.ID))
             {
                 var group = systemModel.Groups.Find(account.Group.ID);
                 _view.addGridRow(row, account.ID.ToString(), account.name, (double)account.openingAmount, 
@@ -118,11 +120,16 @@ namespace iFINANCE
                
                 var parentGroup = systemModel.Groups.Find(Convert.ToInt32(_view.acGroupID()));
 
+                // get the user from database
+                var user = systemModel.NonAdminUsers.Find(currentUser.ID);
+
                 MasterAccount account = new MasterAccount();
                 account.name = _view.acName;
                 account.openingAmount = double.Parse(_view.acOAmount);
                 account.closingAmount = 0;
                 account.Group = parentGroup;
+                // added to link up the account to the current user
+                account.NonAdminUser = user;
                 systemModel.MasterAccounts.Add(account);
                 systemModel.SaveChanges();
 

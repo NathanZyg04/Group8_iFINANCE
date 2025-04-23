@@ -18,7 +18,9 @@ namespace iFINANCE
         public string name { get; set; }
         public Nullable<double> openingAmount { get; set; }
         public Nullable<double> closingAmount { get; set; }
+        public int NonAdminUser_ID { get; set; }
     
         public virtual Group Group { get; set; }
+        public virtual NonAdminUser NonAdminUser { get; set; }
     }
 }

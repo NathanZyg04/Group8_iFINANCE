@@ -12,10 +12,14 @@ namespace iFINANCE
 {
     public partial class ChartOfAccountsForm : Form
     {
+        NonAdminUser currentUser;
         ChartOfAccountsControl accountsControl;  // set the link to the control
-        public ChartOfAccountsForm()
+        public ChartOfAccountsForm(NonAdminUser currentUser)
         {
             InitializeComponent();
+
+            // assign the current User
+            this.currentUser = currentUser;
 
             accountsControl = new ChartOfAccountsControl();
 
@@ -25,6 +29,13 @@ namespace iFINANCE
             this.addAccountItem.Click += new System.EventHandler(accountsControl.addAccountItem_Click);
             this.addAccountBtn.Click += new System.EventHandler(accountsControl.addAccountBtn_Click);
             this.removeAccountItem.Click += new System.EventHandler(accountsControl.removeAccount_Click);
+        }
+
+
+        // getter function for getting the current NonAdminUser
+        public NonAdminUser getUser()
+        {
+            return currentUser;
         }
 
 
