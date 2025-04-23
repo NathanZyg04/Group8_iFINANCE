@@ -113,7 +113,8 @@ namespace iFINANCE
         {
             if(admin != null)
             {
-                AddUserForm adduserForm = new AddUserForm(admin);
+                // pass the ID of the addmin to the form
+                AddUserForm adduserForm = new AddUserForm(admin.ID);
                 adduserForm.ShowDialog();
             }
             else

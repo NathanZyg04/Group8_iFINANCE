@@ -416,11 +416,11 @@
           <End Type="iFINANCEAnalysisModel.Transaction" Role="Transaction" Multiplicity="*" />
         </Association>
         <Association Name="NonAdminUserUserPassword">
-          <End Type="iFINANCEAnalysisModel.NonAdminUser" Role="NonAdminUser" Multiplicity="1" />
+          <End Type="iFINANCEAnalysisModel.NonAdminUser" Role="NonAdminUser" Multiplicity="0..1" />
           <End Type="iFINANCEAnalysisModel.UserPassword" Role="UserPassword" Multiplicity="1" />
         </Association>
         <Association Name="AdministratorUserPassword">
-          <End Type="iFINANCEAnalysisModel.Administrator" Role="Administrator" Multiplicity="1" />
+          <End Type="iFINANCEAnalysisModel.Administrator" Role="Administrator" Multiplicity="0..1" />
           <End Type="iFINANCEAnalysisModel.UserPassword" Role="UserPassword" Multiplicity="1" />
         </Association>
         <Association Name="AdministratorNonAdminUser">
@@ -573,6 +573,7 @@
       <EndProperty Name="NonAdminUser">
         <ScalarProperty Name="ID" ColumnName="ID" />
       </EndProperty>
+            <Condition ColumnName="UserPassword_ID" IsNull="false" />
     </AssociationSetMapping>
     <AssociationSetMapping Name="AdministratorUserPassword" TypeName="iFINANCEAnalysisModel.AdministratorUserPassword" StoreEntitySet="Administrators">
       <EndProperty Name="UserPassword">
@@ -581,6 +582,7 @@
       <EndProperty Name="Administrator">
         <ScalarProperty Name="ID" ColumnName="ID" />
       </EndProperty>
+            <Condition ColumnName="UserPassword_ID" IsNull="false" />
     </AssociationSetMapping>
     <AssociationSetMapping Name="AdministratorNonAdminUser" TypeName="iFINANCEAnalysisModel.AdministratorNonAdminUser" StoreEntitySet="NonAdminUsers">
       <EndProperty Name="Administrator">

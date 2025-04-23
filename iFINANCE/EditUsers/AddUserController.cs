@@ -12,11 +12,18 @@ namespace iFINANCE
     class AddUserController
     {
         private static AddUserForm _view;
-        private iFINANCEModel systemModel = new iFINANCEModel();  // set the link to the model
+        private readonly iFINANCEModel systemModel;  // set the link to the model
+
+
+        public AddUserController()
+        {
+            this.systemModel = new iFINANCEModel();
+        }
 
         public void AddUserController_Load(object sender, EventArgs e)
         {
             _view = (AddUserForm)sender;
+            
         }
 
 
@@ -24,10 +31,11 @@ namespace iFINANCE
         public void createUserButton_Click(object sender, EventArgs e)
         {
             // get the admin from this instance of the systemModel
-            Administrator originalAdmin = _view.getAdmin();
+            int adminID = _view.getAdmin();
 
             
-            Administrator admin = systemModel.Administrators.FirstOrDefault(a => a.ID == originalAdmin.ID);
+            //Administrator admin = systemModel.Administrators.FirstOrDefault(a => a.ID == adminID);
+            //MessageBox.Show($"{admin.ID}");
 
             // get the textbox strings
             string name = _view.getNameTextBox();
@@ -41,7 +49,7 @@ namespace iFINANCE
 
             if(password.Equals(confirmPassword))
             {
-                var userPassword = new UserPassword
+                iFINANCE.UserPassword userPassword = new iFINANCE.UserPassword
                 {
                     userName = username,
                     encryptedPassword = password,
@@ -49,21 +57,23 @@ namespace iFINANCE
                     userAccountExpiryDate = System.DateTime.Now
                 };
 
-               
 
-                var newUser = new NonAdminUser
+                systemModel.UserPasswords.Add(userPassword);
+
+                iFINANCE.NonAdminUser newUser = new iFINANCE.NonAdminUser
                 {
                     name = name,
                     address = address,
                     email = email,
                     UserPassword = userPassword,
-                    Administrator = admin
+                    Administrator = systemModel.Administrators.Find(adminID)
                 };
 
+                
                 systemModel.NonAdminUsers.Add(newUser);
                 systemModel.SaveChanges();
 
-                MessageBox.Show("New user created!");
+                MessageBox.Show($"User {name} created!");
 
             }
             else

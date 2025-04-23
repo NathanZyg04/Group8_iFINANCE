@@ -28,16 +28,7 @@ namespace iFINANCE
 
             NonAdminUser currentUser = null;
 
-            foreach (var user in systemModel.NonAdminUsers)
-            {
-                if (user.UserPassword.encryptedPassword.Equals(password) &&
-                    user.UserPassword.userName.Equals(username))
-                {
-                    currentUser = user;
-                    break;
-                }
-            }
-
+            
             var nonAdminUser = systemModel.NonAdminUsers.Include(u => u.UserPassword)
                                                         .FirstOrDefault(u => u.UserPassword.userName == username &&
                                                                         u.UserPassword.encryptedPassword == password);
@@ -46,16 +37,17 @@ namespace iFINANCE
                     
             if(nonAdminUser != null)
             {
-               
 
+               
                 // Hide login form
                 _view.Hide();
                 
-
+                
                 // Show main form and pass the user
-                MainForm mainForm = new MainForm(currentUser, null);
+                MainForm mainForm = new MainForm(nonAdminUser, null);
                 mainForm.FormClosed += (s, args) => _view.Close(); // Close app when main form closes
                 mainForm.Show();
+                return;
             }
 
             var adminUser = systemModel.Administrators.Include(u => u.UserPassword)

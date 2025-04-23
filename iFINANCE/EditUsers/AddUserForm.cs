@@ -13,11 +13,11 @@ namespace iFINANCE.EditUsers
     public partial class AddUserForm : Form
     {
         private AddUserController controller;
-        private Administrator admin;
+        private int adminID;
         private iFINANCEModel systemModel = new iFINANCEModel();
-        public AddUserForm(Administrator admin)
+        public AddUserForm(int adminID)
         {
-            this.admin = admin;
+            this.adminID = adminID;
             controller = new AddUserController();
 
             InitializeComponent();
@@ -28,9 +28,9 @@ namespace iFINANCE.EditUsers
 
 
 
-        public Administrator getAdmin()
+        public int getAdmin()
         {
-            return admin;
+            return adminID;
         }
         // getter function for the view's text box strings
         public string getNameTextBox()
