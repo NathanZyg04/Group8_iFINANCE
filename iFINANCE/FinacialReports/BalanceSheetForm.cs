@@ -15,6 +15,8 @@ namespace iFINANCE.FinacialReports
         private BalanceSheetController controller;
         private int nonAdminUserID;
 
+
+        
         public BalanceSheetForm(int nonAdminUserID)
         {
             InitializeComponent();
@@ -45,7 +47,7 @@ namespace iFINANCE.FinacialReports
                 assetDataGridView.Rows.Add(row.AccountName,row.GroupName,row.TransactionID,row.Debit,row.Credit);
             }
 
-            // update view for liabilite table
+            // update view for liabilities table
             foreach(var row in liabilitesRow)
             {
                liabilitiesDataGridView.Rows.Add(row.AccountName, row.GroupName, row.TransactionID, row.Debit, row.Credit);

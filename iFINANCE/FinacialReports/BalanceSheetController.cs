@@ -29,14 +29,15 @@ namespace iFINANCE.FinacialReports
 
             try
             {
-                List<BalanceSheetRow> rows = GetAssetBalanceSheetDataForUser(_view.getUserID());
-                List<BalanceSheetRow> rows2 = GetLiabilitesBalanceSheetDataForUser(_view.getUserID());
+                // get rows for the tables for assets and liabiltlies 
+                List<BalanceSheetRow> assetRow = GetAssetBalanceSheetDataForUser(_view.getUserID());
+                List<BalanceSheetRow> liabilityRow = GetLiabilitesBalanceSheetDataForUser(_view.getUserID());
 
 
                 //double totalDebit = rows.Sum(row => row.TotalDebit);
                 //double totalCredit = rows.Sum(row => row.TotalCredit);
 
-                _view.displayBalanceSheetInfo(rows, rows2, 0, 0);
+                _view.displayBalanceSheetInfo(assetRow, liabilityRow, 0, 0);
             }
             catch (Exception ex)
             {
