@@ -111,6 +111,7 @@
             this.financialReportsToolStripMenuItem.Name = "financialReportsToolStripMenuItem";
             this.financialReportsToolStripMenuItem.Size = new System.Drawing.Size(124, 23);
             this.financialReportsToolStripMenuItem.Text = "Financial Reports";
+            this.financialReportsToolStripMenuItem.Click += new System.EventHandler(this.financialReportsToolStripMenuItem_Click);
             // 
             // windowToolStripMenuItem
             // 

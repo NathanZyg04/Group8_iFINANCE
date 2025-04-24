@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using iFINANCE.EditUsers;
+using iFINANCE.FinacialReports;
 
 namespace iFINANCE
 {
@@ -163,7 +164,6 @@ namespace iFINANCE
 
         }
 
-
         // Logout tool menu
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -173,5 +173,58 @@ namespace iFINANCE
             newLogin.ShowDialog();
             this.Close();
         }
+        //---------------------------------------------EXPIREMENTAL STUFF FOR FINANCIAL REPORTS-----------------------------------
+
+        private void financialReportsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Create a context menu for financial reports
+            ContextMenuStrip financialReportsMenu = new ContextMenuStrip();
+
+            // Add options for each financial report
+            financialReportsMenu.Items.Add("Trial Balance", null, (s, args) => GenerateTrialBalance());
+            financialReportsMenu.Items.Add("Profit and Loss Statement", null, (s, args) => GenerateProfitAndLoss());
+            financialReportsMenu.Items.Add("Balance Sheet", null, (s, args) => GenerateBalanceSheet());
+            financialReportsMenu.Items.Add("Cash Flow Statement", null, (s, args) => GenerateCashFlowStatement());
+
+            // Show the context menu at the mouse position
+            financialReportsMenu.Show(Cursor.Position);
+        }
+
+        private void GenerateTrialBalance()
+        {
+            if (user == null)
+            {
+                MessageBox.Show("You must be logged in as a non-admin user to access this feature.");
+                return;
+            }
+
+            // Open the TrialBalanceForm and pass the NonAdminUserId
+            TrialBalanceForm trialBalanceForm = new TrialBalanceForm(user.ID);
+            trialBalanceForm.MdiParent = this; //Set the parent form for MDI
+            trialBalanceForm.Show();
+        }
+
+
+        private void GenerateProfitAndLoss()
+        {
+            // Logic to generate and display the Profit and Loss statement
+            MessageBox.Show("Generating Profit and Loss statement...");
+            // TODO: Implement the actual logic to fetch and display the Profit and Loss statement
+        }
+
+        private void GenerateBalanceSheet()
+        {
+            // Logic to generate and display the Balance Sheet
+            MessageBox.Show("Generating Balance Sheet...");
+            // TODO: Implement the actual logic to fetch and display the Balance Sheet
+        }
+
+        private void GenerateCashFlowStatement()
+        {
+            // Logic to generate and display the Cash Flow statement
+            MessageBox.Show("Generating Cash Flow statement...");
+            // TODO: Implement the actual logic to fetch and display the Cash Flow statement
+        }
+
     }
 }

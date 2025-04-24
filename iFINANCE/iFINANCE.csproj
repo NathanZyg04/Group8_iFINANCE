@@ -145,6 +145,20 @@
     <Compile Include="EditUsers\EditUsersForm.Designer.cs">
       <DependentUpon>EditUsersForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="FinacialReports\ProfitandLossController.cs" />
+    <Compile Include="FinacialReports\ProfitandLossForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FinacialReports\ProfitandLossForm.Designer.cs">
+      <DependentUpon>ProfitandLossForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FinacialReports\TrialBalanceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FinacialReports\TrialBalanceForm.Designer.cs">
+      <DependentUpon>TrialBalanceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FinacialReports\TrialBalanceController.cs" />
     <Compile Include="Group.cs">
       <DependentUpon>iFINANCE.tt</DependentUpon>
     </Compile>
