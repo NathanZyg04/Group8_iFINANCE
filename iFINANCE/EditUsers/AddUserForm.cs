@@ -22,12 +22,15 @@ namespace iFINANCE.EditUsers
 
             InitializeComponent();
 
+            // link up the form to the controller events for button clicks
             this.Load += new System.EventHandler(controller.AddUserController_Load);
             this.createUserButton.Click += new System.EventHandler(controller.createUserButton_Click);
+            this.createAdminButton.Click += new System.EventHandler(controller.createAdminButton_Click);
         }
 
 
 
+        // getter functions 
         public int getAdmin()
         {
             return adminID;
@@ -62,7 +65,5 @@ namespace iFINANCE.EditUsers
         {
             return confrimPasswordTextBox.Text;
         }
-
-
     }
 }

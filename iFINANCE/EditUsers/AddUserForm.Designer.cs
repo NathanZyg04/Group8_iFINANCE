@@ -42,6 +42,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.confrimPasswordTextBox = new System.Windows.Forms.TextBox();
             this.createUserButton = new System.Windows.Forms.Button();
+            this.createAdminButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -136,8 +137,10 @@
             // 
             this.passwordTextBox.Location = new System.Drawing.Point(142, 322);
             this.passwordTextBox.Name = "passwordTextBox";
+            this.passwordTextBox.PasswordChar = '*';
             this.passwordTextBox.Size = new System.Drawing.Size(259, 20);
             this.passwordTextBox.TabIndex = 9;
+            this.passwordTextBox.UseSystemPasswordChar = true;
             // 
             // label7
             // 
@@ -153,24 +156,37 @@
             // 
             this.confrimPasswordTextBox.Location = new System.Drawing.Point(142, 373);
             this.confrimPasswordTextBox.Name = "confrimPasswordTextBox";
+            this.confrimPasswordTextBox.PasswordChar = '*';
             this.confrimPasswordTextBox.Size = new System.Drawing.Size(259, 20);
             this.confrimPasswordTextBox.TabIndex = 11;
+            this.confrimPasswordTextBox.UseSystemPasswordChar = true;
             // 
             // createUserButton
             // 
             this.createUserButton.BackColor = System.Drawing.Color.Silver;
             this.createUserButton.Location = new System.Drawing.Point(151, 399);
             this.createUserButton.Name = "createUserButton";
-            this.createUserButton.Size = new System.Drawing.Size(240, 24);
+            this.createUserButton.Size = new System.Drawing.Size(109, 24);
             this.createUserButton.TabIndex = 13;
             this.createUserButton.Text = "Create User";
             this.createUserButton.UseVisualStyleBackColor = false;
+            // 
+            // createAdminButton
+            // 
+            this.createAdminButton.BackColor = System.Drawing.Color.Silver;
+            this.createAdminButton.Location = new System.Drawing.Point(292, 399);
+            this.createAdminButton.Name = "createAdminButton";
+            this.createAdminButton.Size = new System.Drawing.Size(109, 24);
+            this.createAdminButton.TabIndex = 14;
+            this.createAdminButton.Text = "Create Admin";
+            this.createAdminButton.UseVisualStyleBackColor = false;
             // 
             // AddUserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(601, 450);
+            this.Controls.Add(this.createAdminButton);
             this.Controls.Add(this.createUserButton);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.confrimPasswordTextBox);
@@ -208,5 +224,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox confrimPasswordTextBox;
         private System.Windows.Forms.Button createUserButton;
+        private System.Windows.Forms.Button createAdminButton;
     }
 }
