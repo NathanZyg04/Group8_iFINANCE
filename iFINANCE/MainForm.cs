@@ -184,7 +184,6 @@ namespace iFINANCE
             financialReportsMenu.Items.Add("Trial Balance", null, (s, args) => GenerateTrialBalance());
             financialReportsMenu.Items.Add("Profit and Loss Statement", null, (s, args) => GenerateProfitAndLoss());
             financialReportsMenu.Items.Add("Balance Sheet", null, (s, args) => GenerateBalanceSheet());
-            financialReportsMenu.Items.Add("Cash Flow Statement", null, (s, args) => GenerateCashFlowStatement());
 
             // Show the context menu at the mouse position
             financialReportsMenu.Show(Cursor.Position);
@@ -207,10 +206,18 @@ namespace iFINANCE
 
         private void GenerateProfitAndLoss()
         {
-            // Logic to generate and display the Profit and Loss statement
-            MessageBox.Show("Generating Profit and Loss statement...");
-            // TODO: Implement the actual logic to fetch and display the Profit and Loss statement
+            if (user == null)
+            {
+                MessageBox.Show("You must be logged in as a non-admin user to access this feature.");
+                return;
+            }
+
+            // Open the ProfitandLossForm
+            ProfitandLossForm profitAndLossForm = new ProfitandLossForm();
+            profitAndLossForm.MdiParent = this; // Set the parent form for MDI
+            profitAndLossForm.Show();
         }
+
 
         private void GenerateBalanceSheet()
         {
@@ -221,13 +228,6 @@ namespace iFINANCE
             BalanceSheetForm balanceSheetForm = new BalanceSheetForm(user.ID);
             balanceSheetForm.MdiParent = this;
             balanceSheetForm.Show();
-        }
-
-        private void GenerateCashFlowStatement()
-        {
-            // Logic to generate and display the Cash Flow statement
-            MessageBox.Show("Generating Cash Flow statement...");
-            // TODO: Implement the actual logic to fetch and display the Cash Flow statement
         }
 
     }
