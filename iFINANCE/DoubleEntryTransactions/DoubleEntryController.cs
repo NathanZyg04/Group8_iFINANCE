@@ -26,9 +26,11 @@ namespace iFINANCE.DoubleEntryTransactions
 
         public void LoadAccounts()
         {
-            var accounts = systemModel.MasterAccounts.ToList();
-            view.SetDebitAccountComboBox(accounts);
-            view.SetCreditAccountComboBox(accounts);
+            var creditAccounts = systemModel.MasterAccounts.Where(u => u.NonAdminUser_ID == currentUserId).Where(ma => ma.Group.AccountCategory.type == "Credit").ToList();
+            view.SetCreditAccountComboBox(creditAccounts);
+            var debitAccounts = systemModel.MasterAccounts.Where(u => u.NonAdminUser_ID == currentUserId).Where(ma => ma.Group.AccountCategory.type == "Debit").ToList();
+            view.SetDebitAccountComboBox(debitAccounts);
+            
         }
 
         public void LoadTransactionLines()

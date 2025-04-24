@@ -145,12 +145,12 @@
     <Compile Include="EditUsers\EditUsersForm.Designer.cs">
       <DependentUpon>EditUsersForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="FinacialReports\ProfitandLossController.cs" />
-    <Compile Include="FinacialReports\ProfitandLossForm.cs">
+    <Compile Include="FinacialReports\BalanceSheetController.cs" />
+    <Compile Include="FinacialReports\BalanceSheetForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FinacialReports\ProfitandLossForm.Designer.cs">
-      <DependentUpon>ProfitandLossForm.cs</DependentUpon>
+    <Compile Include="FinacialReports\BalanceSheetForm.Designer.cs">
+      <DependentUpon>BalanceSheetForm.cs</DependentUpon>
     </Compile>
     <Compile Include="FinacialReports\TrialBalanceForm.cs">
       <SubType>Form</SubType>
@@ -234,6 +234,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EditUsers\EditUsersForm.resx">
       <DependentUpon>EditUsersForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FinacialReports\BalanceSheetForm.resx">
+      <DependentUpon>BalanceSheetForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginWindow\LoginWindow.resx">
       <DependentUpon>LoginWindow.cs</DependentUpon>

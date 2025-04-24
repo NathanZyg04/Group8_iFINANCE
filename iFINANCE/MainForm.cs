@@ -217,6 +217,10 @@ namespace iFINANCE
             // Logic to generate and display the Balance Sheet
             MessageBox.Show("Generating Balance Sheet...");
             // TODO: Implement the actual logic to fetch and display the Balance Sheet
+
+            BalanceSheetForm balanceSheetForm = new BalanceSheetForm(user.ID);
+            balanceSheetForm.MdiParent = this;
+            balanceSheetForm.Show();
         }
 
         private void GenerateCashFlowStatement()
