@@ -6,7 +6,7 @@ CS_4320 Spring Semester Mizzou
 Contributors:
 - Collin Wanta
 - Nathan Zygmont
-- Tre
+- Tre Haughton
 - Jack Frater
 
   Overview
