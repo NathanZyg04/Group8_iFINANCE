@@ -126,7 +126,7 @@ namespace iFINANCE
                 MasterAccount account = new MasterAccount();
                 account.name = _view.acName;
                 account.openingAmount = double.Parse(_view.acOAmount);
-                account.closingAmount = 0;
+                account.closingAmount = account.openingAmount;//changed from 0 to opening amount
                 account.Group = parentGroup;
                 // added to link up the account to the current user
                 account.NonAdminUser = user;
