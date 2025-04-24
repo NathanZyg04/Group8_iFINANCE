@@ -1,5 +1,6 @@
 iFINANCE project by Group 8 
 
+
 CS_4320 Spring Semester Mizzou
 4/24/2025
 
@@ -10,6 +11,8 @@ Contributors:
 - Jack Frater
 
   Overview
+
+  C# Windows form using EntityFramework
 
 A Personal Finance Management system is a software intended to control the users’ finances,
 keeping track of bank accounts, cash, credit cards, and investment accounts. Users record all their deposits
