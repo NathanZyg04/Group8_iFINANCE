@@ -212,7 +212,7 @@ namespace iFINANCE
                 return;
             }
 
-            // Open the ProfitandLossForm
+            //// Open the ProfitandLossForm
             ProfitandLossForm profitAndLossForm = new ProfitandLossForm();
             profitAndLossForm.MdiParent = this; // Set the parent form for MDI
             profitAndLossForm.Show();

@@ -27,10 +27,9 @@ namespace iFINANCE.DoubleEntryTransactions
         public void LoadAccounts()
         {
             // Load the accounts that are of type credit or debit based on the current user's ID
-            var creditAccounts = systemModel.MasterAccounts.Where(u => u.NonAdminUser_ID == currentUserId).Where(ma => ma.Group.AccountCategory.type == "Credit").ToList();
-            view.SetCreditAccountComboBox(creditAccounts);
-            var debitAccounts = systemModel.MasterAccounts.Where(u => u.NonAdminUser_ID == currentUserId).Where(ma => ma.Group.AccountCategory.type == "Debit").ToList();
-            view.SetDebitAccountComboBox(debitAccounts);
+            List<MasterAccount> accounts = systemModel.MasterAccounts.Where(u => u.NonAdminUser_ID == currentUserId).ToList();
+            view.SetCreditAccountComboBox(accounts);
+            view.SetDebitAccountComboBox(accounts);
             
         }
 
