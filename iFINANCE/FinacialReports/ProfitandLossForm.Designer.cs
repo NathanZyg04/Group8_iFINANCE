@@ -58,10 +58,21 @@
             // incomeDataGridView
             // 
             this.incomeDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+
+            var incomeColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            incomeColumn1.Name = "AccountName1";
+            incomeColumn1.HeaderText = "Account Name";
+            incomeColumn1.Width = 200;
+
+            var incomeColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            incomeColumn2.Name = "Amount1";
+            incomeColumn2.HeaderText = "Amount";
+            incomeColumn2.Width = 100;
+
             this.incomeDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-                new System.Windows.Forms.DataGridViewTextBoxColumn { Name = "AccountName", HeaderText = "Account Name", Width = 200 },
-                new System.Windows.Forms.DataGridViewTextBoxColumn { Name = "Amount", HeaderText = "Amount", Width = 100 }
+            incomeColumn1, incomeColumn2
             });
+
             this.incomeDataGridView.Location = new System.Drawing.Point(12, 40);
             this.incomeDataGridView.Name = "incomeDataGridView";
             this.incomeDataGridView.Size = new System.Drawing.Size(360, 200);
@@ -71,10 +82,21 @@
             // expenseDataGridView
             // 
             this.expenseDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+
+            var expenseColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            expenseColumn1.Name = "AccountName";
+            expenseColumn1.HeaderText = "Account Name";
+            expenseColumn1.Width = 200;
+
+            var expenseColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            expenseColumn2.Name = "Amount";
+            expenseColumn2.HeaderText = "Amount";
+            expenseColumn2.Width = 100;
+
             this.expenseDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-                new System.Windows.Forms.DataGridViewTextBoxColumn { Name = "AccountName", HeaderText = "Account Name", Width = 200 },
-                new System.Windows.Forms.DataGridViewTextBoxColumn { Name = "Amount", HeaderText = "Amount", Width = 100 }
+             expenseColumn1, expenseColumn2
             });
+
             this.expenseDataGridView.Location = new System.Drawing.Point(400, 40);
             this.expenseDataGridView.Name = "expenseDataGridView";
             this.expenseDataGridView.Size = new System.Drawing.Size(360, 200);
@@ -182,7 +204,7 @@
             this.PerformLayout();
         }
 
+
         #endregion
     }
 }
-

@@ -29,15 +29,12 @@
         private void InitializeComponent()
         {
             this.assetDataGridView = new System.Windows.Forms.DataGridView();
-            this.assetsTextBox = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.liabiltiesTextBox = new System.Windows.Forms.TextBox();
             this.AccountName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GroupName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TransID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalDebit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalCredit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
             this.liabilitiesDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,38 +61,6 @@
             this.assetDataGridView.Size = new System.Drawing.Size(497, 377);
             this.assetDataGridView.TabIndex = 0;
             // 
-            // assetsTextBox
-            // 
-            this.assetsTextBox.Location = new System.Drawing.Point(98, 457);
-            this.assetsTextBox.Name = "assetsTextBox";
-            this.assetsTextBox.Size = new System.Drawing.Size(123, 20);
-            this.assetsTextBox.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(27, 418);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Total Assets:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(351, 460);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(77, 13);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Total Liabilties:";
-            // 
-            // liabiltiesTextBox
-            // 
-            this.liabiltiesTextBox.Location = new System.Drawing.Point(422, 457);
-            this.liabiltiesTextBox.Name = "liabiltiesTextBox";
-            this.liabiltiesTextBox.Size = new System.Drawing.Size(123, 20);
-            this.liabiltiesTextBox.TabIndex = 3;
-            // 
             // AccountName
             // 
             this.AccountName.HeaderText = "AccountName";
@@ -121,6 +86,14 @@
             // 
             this.TotalCredit.HeaderText = "TotalCredit";
             this.TotalCredit.Name = "TotalCredit";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(27, 418);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(0, 13);
+            this.label1.TabIndex = 2;
             // 
             // liabilitiesDataGridView
             // 
@@ -189,14 +162,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1101, 740);
+            this.ClientSize = new System.Drawing.Size(1067, 451);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.liabilitiesDataGridView);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.liabiltiesTextBox);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.assetsTextBox);
             this.Controls.Add(this.assetDataGridView);
             this.Name = "BalanceSheetForm";
             this.Text = "BalanceSheetForm";
@@ -210,10 +180,7 @@
         #endregion
 
         private System.Windows.Forms.DataGridView assetDataGridView;
-        private System.Windows.Forms.TextBox assetsTextBox;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox liabiltiesTextBox;
         private System.Windows.Forms.DataGridViewTextBoxColumn AccountName;
         private System.Windows.Forms.DataGridViewTextBoxColumn GroupName;
         private System.Windows.Forms.DataGridViewTextBoxColumn TransID;

@@ -46,9 +46,15 @@ namespace iFINANCE.FinacialReports
             totalIncomeTextBox.Text = totalIncome.ToString("C2");
             totalExpensesTextBox.Text = totalExpenses.ToString("C2");
 
-            profitOrLossTextBox.Text = profitOrLoss < 0
-                ? $"-${Math.Abs(profitOrLoss):N2}" // Format as -$200.00
-                : $"${profitOrLoss:N2}";          // Format as $200.00
+            double diff = Math.Abs(totalIncome) - totalExpenses;
+
+            profitOrLossTextBox.Text = diff.ToString("C");
+
+                   
+
+            profitOrLossTextBox.Text = diff < 0
+                ? $"-${Math.Abs(diff):N2}" // Format as -$200.00
+                : $"${diff:N2}";          // Format as $200.00
 
             // Display profit or loss (negative value will automatically show as a loss)
             //profitOrLossTextBox.Text = profitOrLoss.ToString("C2"); // Format as currency

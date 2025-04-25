@@ -218,12 +218,15 @@ namespace iFINANCE
             profitAndLossForm.Show();
         }
 
-
+        // Logic to generate and display the Balance Sheet
         private void GenerateBalanceSheet()
         {
-            // Logic to generate and display the Balance Sheet
-            MessageBox.Show("Generating Balance Sheet...");
-            // TODO: Implement the actual logic to fetch and display the Balance Sheet
+            // Check to make sure user us logged in
+            if (user == null)
+            {
+                MessageBox.Show("You must be logged in as a non-admin user to access this feature.");
+                return;
+            }
 
             BalanceSheetForm balanceSheetForm = new BalanceSheetForm(user.ID);
             balanceSheetForm.MdiParent = this;
