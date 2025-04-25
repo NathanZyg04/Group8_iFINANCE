@@ -39,6 +39,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.usernameTextBox = new System.Windows.Forms.TextBox();
             this.editUserButton = new System.Windows.Forms.Button();
+            this.deleteUserButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // userListBox
@@ -50,7 +51,6 @@
             this.userListBox.Name = "userListBox";
             this.userListBox.Size = new System.Drawing.Size(159, 204);
             this.userListBox.TabIndex = 0;
-            //this.userListBox.SelectedIndexChanged += new System.EventHandler(this.userListBox_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -138,13 +138,24 @@
             this.editUserButton.TabIndex = 10;
             this.editUserButton.Text = "Edit User";
             this.editUserButton.UseVisualStyleBackColor = true;
-            //this.editUserButton.Click += new System.EventHandler(this.editUserButton_Click);
+            // 
+            // deleteUserButton
+            // 
+            this.deleteUserButton.BackColor = System.Drawing.Color.Red;
+            this.deleteUserButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.deleteUserButton.Location = new System.Drawing.Point(19, 280);
+            this.deleteUserButton.Name = "deleteUserButton";
+            this.deleteUserButton.Size = new System.Drawing.Size(156, 23);
+            this.deleteUserButton.TabIndex = 11;
+            this.deleteUserButton.Text = "Delete User";
+            this.deleteUserButton.UseVisualStyleBackColor = false;
             // 
             // EditUsersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.deleteUserButton);
             this.Controls.Add(this.editUserButton);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.usernameTextBox);
@@ -176,5 +187,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox usernameTextBox;
         private System.Windows.Forms.Button editUserButton;
+        private System.Windows.Forms.Button deleteUserButton;
     }
 }
