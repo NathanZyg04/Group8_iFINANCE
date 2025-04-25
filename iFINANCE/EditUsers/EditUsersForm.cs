@@ -22,9 +22,11 @@ namespace iFINANCE
 
             controller = new EditUsersController();
 
+            // connect the methods from the controller
             this.Load += new System.EventHandler(controller.EditUsersController_Load);
             this.userListBox.SelectedIndexChanged += new System.EventHandler(controller.userListBox_SelectedIndexChanged);
             this.editUserButton.Click += new System.EventHandler(controller.editUserButton_Click);
+            this.deleteUserButton.Click += new System.EventHandler(controller.deleteUserButton_Click);
 
            
 
@@ -72,9 +74,5 @@ namespace iFINANCE
         {
             return usernameTextBox.Text;
         }
-
-
-      
-        
     }
 }

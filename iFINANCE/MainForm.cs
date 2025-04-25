@@ -37,7 +37,14 @@ namespace iFINANCE
 
             if(admin != null)
             {
+                // if the admin is logged in set all the nonadmin only options to not visible
                 this.Text = $"Group 8 iFinance | Weclome {admin.name}";
+                manageAccountGroupToolStripMenuItem.Visible = false;
+                function2ToolStripMenuItem.Visible = false;
+                doubleEntryToolStripMenuItem.Visible = false;
+                financialReportsToolStripMenuItem.Visible = false;
+                function3ToolStripMenuItem.Visible = false;
+
             }
         }
 

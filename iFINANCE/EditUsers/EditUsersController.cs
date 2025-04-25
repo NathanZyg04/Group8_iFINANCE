@@ -11,11 +11,25 @@ namespace iFINANCE
     {
         private static EditUsersForm _view;
         private iFINANCEModel systemModel = new iFINANCEModel();
+        private NonAdminUser currentSelectedUser;
 
         public void EditUsersController_Load(object sender, EventArgs e)
         {
             _view = (EditUsersForm)sender;
 
+            // set the current selected user to the first one in database
+            currentSelectedUser = systemModel.NonAdminUsers.First();
+
+
+            
+            updateUserList();
+
+
+        }
+            
+        // updates the user list box
+        public void updateUserList()
+        {
             // Select the nonadmin users from database
             var users = systemModel.NonAdminUsers
                                .Select(u => new
@@ -39,8 +53,6 @@ namespace iFINANCE
             //userListBox.ValueMember = "ID";
 
             _view.SetUserListBoxDataSource(formattedUsers, "Display", "ID");
-
-
         }
 
         public void editUserButton_Click(object sender, EventArgs e)
@@ -83,7 +95,8 @@ namespace iFINANCE
                 return;
 
 
-
+            // set the current selected User
+            currentSelectedUser = systemModel.NonAdminUsers.FirstOrDefault(u => u.ID == userID);
 
             // get the user from the database based off the userID from list box
             NonAdminUser user = systemModel.NonAdminUsers.FirstOrDefault(u => u.ID == userID);
@@ -93,6 +106,34 @@ namespace iFINANCE
 
             _view.setUserTextBox(user.name, user.email, user.address, user.UserPassword.userName);
 
+        }
+
+        // deleting a user functionality
+        public void deleteUserButton_Click(object sender, EventArgs e)
+        {
+            if(currentSelectedUser != null)
+            {
+                // Display a warning message box to confirm delete
+                DialogResult result = MessageBox.Show($"Do you want to delete {currentSelectedUser.name}?","Warning",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Warning
+                        );
+
+                if (result == DialogResult.Yes)
+                {
+                    // remove user from database
+                    systemModel.NonAdminUsers.Remove(currentSelectedUser);
+                    systemModel.SaveChanges();
+
+                    updateUserList();
+                }
+
+
+            }
+            else
+            {
+                MessageBox.Show("No user selected!");
+            }
         }
     }
 }
