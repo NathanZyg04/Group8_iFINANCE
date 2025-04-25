@@ -33,8 +33,5 @@ namespace iFINANCE
         {
             return passwordTextBox.Text;
         }
-
-        
-
     }
 }

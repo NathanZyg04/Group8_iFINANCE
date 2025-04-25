@@ -13,6 +13,7 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -27,7 +28,6 @@
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -145,6 +145,27 @@
     <Compile Include="EditUsers\EditUsersForm.Designer.cs">
       <DependentUpon>EditUsersForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="FinacialReports\BalanceSheetController.cs" />
+    <Compile Include="FinacialReports\BalanceSheetForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FinacialReports\BalanceSheetForm.Designer.cs">
+      <DependentUpon>BalanceSheetForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FinacialReports\ProfitandLossController.cs" />
+    <Compile Include="FinacialReports\ProfitandLossForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FinacialReports\ProfitandLossForm.Designer.cs">
+      <DependentUpon>ProfitandLossForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FinacialReports\TrialBalanceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FinacialReports\TrialBalanceForm.Designer.cs">
+      <DependentUpon>TrialBalanceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FinacialReports\TrialBalanceController.cs" />
     <Compile Include="Group.cs">
       <DependentUpon>iFINANCE.tt</DependentUpon>
     </Compile>
@@ -221,6 +242,9 @@
     <EmbeddedResource Include="EditUsers\EditUsersForm.resx">
       <DependentUpon>EditUsersForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FinacialReports\BalanceSheetForm.resx">
+      <DependentUpon>BalanceSheetForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoginWindow\LoginWindow.resx">
       <DependentUpon>LoginWindow.cs</DependentUpon>
     </EmbeddedResource>
@@ -269,6 +293,13 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Data\Group8_iFINANCEDB.mdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\Group8_iFINANCEDB_log.ldf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DependentUpon>Group8_iFINANCEDB.mdf</DependentUpon>
+    </Content>
     <Content Include="iFINANCE.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>iFINANCE.Context.cs</LastGenOutput>
